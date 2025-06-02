@@ -6,12 +6,21 @@ import (
 )
 
 func main() {
-	var tmplFile = "./layout.tex.tmpl"
-	tmpl, err := template.New(tmplFile).ParseFiles(tmplFile)
+	var layoutTmpl = "./layout.tex.tmpl"
+	layout, err := template.New(layoutTmpl).ParseFiles(layoutTmpl)
 	if err != nil {
 		panic(err)
 	}
-	err = tmpl.Execute(os.Stdout, nil)
+	err = layout.Execute(os.Stdout, nil)
+	if err != nil {
+		panic(err)
+	}
+	var stylingTmpl = "./styling.cls.tmpl"
+	style, err := template.New(stylingTmpl).ParseFiles(stylingTmpl)
+	if err != nil {
+		panic(err)
+	}
+	err = style.Execute(os.Stdout, nil)
 	if err != nil {
 		panic(err)
 	}
