@@ -1,3 +1,76 @@
+static:
+  name: Max Mustermann
+  address: Musterweg, 1
+  phone: 123
+  email: max@mustermann.de
+  birthdate: 01.01.1970
+
 versions:
   english:
+    - heading: Education
+      entries:
+        - name: Bachelor of Computer Science, University of Exampleland
+          startdate: 01.10.1989
+          enddate: 30.09.1993
+          desc: GPA 3.2
+        - name: Master of Information Systems, Example Tech University
+          startdate: 01.10.1993
+          enddate: 30.09.1995
+          desc: GPA 3.5
+    - heading: Experience
+      entries:
+        - name: Software Engineer, ExampleSoft GmbH
+          startdate: 01.01.1996
+          enddate: 31.12.2000
+          desc: Developed internal tools in C++ and led a team of junior developers.
+        - name: IT Consultant, GlobalTech Solutions
+          startdate: 01.01.2001
+          enddate: 30.06.2005
+          desc: Advised enterprise clients on digital transformation strategies.
+    - heading: Projects
+      entries:
+        - name: OpenDataMap
+          desc: A web app visualizing public datasets using interactive maps. Built with React and Python.
+        - name: SmartGarden
+          desc: IoT-based garden automation project with moisture sensors and mobile notifications.
+    - heading: Activities
+      entries:
+        - name: Volunteer Tech Mentor
+          desc: Mentored teenagers in coding basics at the local community center.
+        - name: Hackathon Organizer
+          desc: Co-founded the annual “Hack4Good” coding event in Berlin.
+
   german:
+    - heading: Bildung
+      entries:
+        - name: Bachelor in Informatik, Universität Beispielstadt
+          startdate: 01.10.1989
+          enddate: 30.09.1993
+          desc: Schnitt 3,2
+        - name: Master in Wirtschaftsinformatik, Technische Universität Beispiel
+          startdate: 01.10.1993
+          enddate: 30.09.1995
+          desc: Schnitt 3,5
+    - heading: Berufserfahrung
+      entries:
+        - name: Softwareentwickler, ExampleSoft GmbH
+          startdate: 01.01.1996
+          enddate: 31.12.2000
+          desc: Entwicklung interner Tools in C++ und Leitung eines Teams von Juniorentwicklern.
+        - name: IT-Berater, GlobalTech Solutions
+          startdate: 01.01.2001
+          enddate: 30.06.2005
+          desc: Beratung von Großkunden zur digitalen Transformation.
+    - heading: Projekte
+      entries:
+        - name: OpenDataMap
+          desc: Web-App zur Visualisierung öffentlicher Datensätze auf interaktiven Karten. Erstellt mit React und Python.
+        - name: SmartGarden
+          desc: IoT-Projekt zur Gartenautomatisierung mit Feuchtigkeitssensoren und Benachrichtigungen.
+    - heading: Aktivitäten
+      entries:
+        - name: Ehrenamtlicher Technik-Mentor
+          desc: Einführung von Jugendlichen in die Programmierung im örtlichen Jugendzentrum.
+        - name: Hackathon-Organisator
+          desc: Mitbegründer des jährlichen Coding-Events „Hack4Good“ in Berlin.
+

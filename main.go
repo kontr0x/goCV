@@ -1,27 +1,28 @@
 package main
 
 import (
-	"os"
-	"text/template"
+	"fmt"
+
+	"github.com/coffeemakingtoaster/cv-gen/pkg/content"
 )
 
 func main() {
-	var layoutTmpl = "./layout.tex.tmpl"
-	layout, err := template.New(layoutTmpl).ParseFiles(layoutTmpl)
+	layoutTmpl := "layout.tex.tmpl"
+	stylingTmpl := "resume.cls.tmpl"
+
+	data, err := content.ParseContentFromYaml("./content.yaml")
 	if err != nil {
 		panic(err)
 	}
-	err = layout.Execute(os.Stdout, nil)
-	if err != nil {
-		panic(err)
-	}
-	var stylingTmpl = "./styling.cls.tmpl"
-	style, err := template.New(stylingTmpl).ParseFiles(stylingTmpl)
-	if err != nil {
-		panic(err)
-	}
-	err = style.Execute(os.Stdout, nil)
-	if err != nil {
-		panic(err)
+	for _, entry := range data {
+		dir := fmt.Sprintf("./%s-out", entry.Content.Version)
+		err := content.RenderTemplate(layoutTmpl, stylingTmpl, dir, entry)
+		if err != nil {
+			panic(err)
+		}
+		err = content.BuildTemplate(dir)
+		if err != nil {
+			panic(err)
+		}
 	}
 }

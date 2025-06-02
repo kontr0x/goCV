@@ -1,0 +1,28 @@
+\documentclass{resume} 
+
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+
+\name{ {{ .StaticContent.Name }} }
+\address{ {{ .StaticContent.Address }} }
+\address{ {{ .StaticContent.Phone }} \\ {{ .StaticContent.Email }} } 
+
+\begin{document}
+
+\begin{rSection}{Persönliche Daten Thank you.}
+    
+\end{rSection}
+
+{{ range .Content }}
+
+\begin{rSection}{ {{ .Heading }} }
+{{ range .Entries}}
+{\bf {{ .Name }}} \hfill {\em {{ .StartDate }} - {{ .EndDate }}} 
+\hfill { {{.Description}} }
+{{ end }}
+
+\end{rSection}
+{{ end }}
+
+\end{document}----------------------------
