@@ -424,3 +424,5 @@ tags
 out
 *.pdf
 *-out
+*.yaml
+!example.content.yaml

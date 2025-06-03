@@ -2,15 +2,22 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/coffeemakingtoaster/cv-gen/pkg/content"
 )
 
-func main() {
-	layoutTmpl := "layout.tex.tmpl"
-	stylingTmpl := "resume.cls.tmpl"
+var layoutTmpl = "layout.tex.tmpl"
+var stylingTmpl = "resume.cls.tmpl"
+var defaultContentYamlPath = "./content.yaml"
 
-	data, err := content.ParseContentFromYaml("./content.yaml")
+func main() {
+	contentPath := defaultContentYamlPath
+	if len(os.Args) > 1 {
+		contentPath = os.Args[1]
+	}
+	fmt.Printf("Reading content from %s\n", contentPath)
+	data, err := content.ParseContentFromYaml(contentPath)
 	if err != nil {
 		panic(err)
 	}
