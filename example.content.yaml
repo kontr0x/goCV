@@ -49,6 +49,12 @@ versions:
           desc: Mentored teenagers in coding basics at the local community center.
         - name: Hackathon Organizer
           desc: Co-founded the annual “Hack4Good” coding event in Berlin.
+    - heading: Skills
+      table:
+        - name: Languages
+          value: English, German
+        - name: Technologies
+          value: Charizard, Blastoise, Peter Pan, Kafka, Kant, Placeholder, Filler
 
   german:
     - heading: Bildung
@@ -87,4 +93,10 @@ versions:
           desc: Einführung von Jugendlichen in die Programmierung im örtlichen Jugendzentrum.
         - name: Hackathon-Organisator
           desc: Mitbegründer des jährlichen Coding-Events „Hack4Good“ in Berlin.
+    - heading: Fähigkeiten
+      table:
+        - name: Sprachen
+          value: Englisch, Deutsch
+        - name: Technologien
+          value: Charizard, Blastoise, Peter Pan, Kafka, Kant, Placeholder, Filler
 

@@ -34,6 +34,7 @@ type StaticInfo struct {
 type VersionSection struct {
 	Heading string  `yaml:"heading"`
 	Entries []Entry `yaml:"entries"`
+	Table   []Table `yaml:"table"`
 }
 
 // Each entry under a section
@@ -43,6 +44,11 @@ type Entry struct {
 	EndDate     string `yaml:"enddate"`
 	Description string `yaml:"desc"`
 	Link        Link   `yaml:"link"`
+}
+
+type Table struct {
+	Name  string `yaml:"name"`
+	Value string `yaml:"value"`
 }
 
 type ContentTemplateData struct {

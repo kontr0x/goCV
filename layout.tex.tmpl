@@ -4,6 +4,7 @@
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 
+
 \name{ {{ .StaticContent.Name }} }
 \address{ {{ .StaticContent.Address }} }
 \address{ {{ .StaticContent.Phone }} \\ {{ .StaticContent.Email }} } 
@@ -13,9 +14,25 @@
 {{ range .Content }}
 
 \begin{rSection}{ {{ .Heading }} }
-{{ range .Entries}}
+
+% if entry is not table, iterate content
+{{ if eq (len .Table) 0 }}
+
+{{ range .Entries }}
 {\bf {{ .Name }}} \hfill {{ if .StartDate }} { {{ .StartDate }} - {{ .EndDate }}} {{end}} \\
 \hfill{ {{.Description}} {{ if .Link.Link }} \href{ {{ .Link.Link }} }{ {{ .Link.Title }} } {{ end }} }
+{{ end }}
+
+{{ end }}
+
+% if entry is table, iterate table
+{{ if gt (len .Table) 0 }}
+\begin{tabular}{>{\bfseries}l l}
+{{- range .Table -}}
+{{ .Name }} & {{ .Value }} \\
+{{- end }}
+\end{tabular}
+
 {{ end }}
 
 \end{rSection}
