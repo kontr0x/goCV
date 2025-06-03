@@ -42,6 +42,7 @@ type Entry struct {
 	StartDate   string `yaml:"startdate"`
 	EndDate     string `yaml:"enddate"`
 	Description string `yaml:"desc"`
+	Link        Link   `yaml:"link"`
 }
 
 type ContentTemplateData struct {

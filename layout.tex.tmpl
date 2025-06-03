@@ -15,7 +15,7 @@
 \begin{rSection}{ {{ .Heading }} }
 {{ range .Entries}}
 {\bf {{ .Name }}} \hfill {{ if .StartDate }} {\em {{ .StartDate }} - {{ .EndDate }}} {{end}} \\
-\hfill { {{.Description}} }
+\hfill{ {{.Description}} {{ if .Link.Link }} \href{ {{ .Link.Link }} }{ {{ .Link.Title }} } {{ end }} }
 {{ end }}
 
 \end{rSection}
@@ -25,7 +25,7 @@
 \begin{rSection}{ Links }
 
 {{- range .StaticContent.Links -}}
-  \href{ {{ .Link }}}{ {{ .Title }} } \hfill 
+  \href{ {{ .Link }} }{ {{ .Title }} } \hfill 
 {{- end }}
 
 \end{rSection}
