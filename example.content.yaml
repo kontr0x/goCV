@@ -39,6 +39,10 @@ versions:
           desc: A web app visualizing public datasets using interactive maps. Built with React and Python.
         - name: SmartGarden
           desc: IoT-based garden automation project with moisture sensors and mobile notifications.
+          link:
+            title: Github
+            link: github.com
+
     - heading: Activities
       entries:
         - name: Volunteer Tech Mentor
@@ -73,6 +77,10 @@ versions:
           desc: Web-App zur Visualisierung öffentlicher Datensätze auf interaktiven Karten. Erstellt mit React und Python.
         - name: SmartGarden
           desc: IoT-Projekt zur Gartenautomatisierung mit Feuchtigkeitssensoren und Benachrichtigungen.
+          link:
+            title: Github
+            link: github.com
+
     - heading: Aktivitäten
       entries:
         - name: Ehrenamtlicher Technik-Mentor
