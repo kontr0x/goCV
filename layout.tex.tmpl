@@ -10,17 +10,23 @@
 
 \begin{document}
 
-\begin{rSection}{Persönliche Daten Thank you.}
-    
-\end{rSection}
-
 {{ range .Content }}
 
 \begin{rSection}{ {{ .Heading }} }
 {{ range .Entries}}
-{\bf {{ .Name }}} \hfill {\em {{ .StartDate }} - {{ .EndDate }}} 
+{\bf {{ .Name }}} \hfill {{ if .StartDate }} {\em {{ .StartDate }} - {{ .EndDate }}} {{end}} \\
 \hfill { {{.Description}} }
 {{ end }}
+
+\end{rSection}
+{{ end }}
+
+{{ if .StaticContent.Links }}
+\begin{rSection}{ Links }
+
+{{- range .StaticContent.Links -}}
+  \href{ {{ .Link }}}{ {{ .Title }} } \hfill 
+{{- end }}
 
 \end{rSection}
 {{ end }}

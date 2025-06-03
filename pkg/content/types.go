@@ -15,6 +15,11 @@ type Resume struct {
 	Versions map[string][]VersionSection `yaml:"versions"`
 }
 
+type Link struct {
+	Title string `yaml:"title"`
+	Link  string `yaml:"link"`
+}
+
 // Static personal information
 type StaticInfo struct {
 	Name      string `yaml:"name"`
@@ -22,6 +27,7 @@ type StaticInfo struct {
 	Phone     string `yaml:"phone"`
 	Email     string `yaml:"email"`
 	Birthdate string `yaml:"birthdate"`
+	Links     []Link `yaml:"links"`
 }
 
 // Each section in a language version (e.g., Education, Bildung)

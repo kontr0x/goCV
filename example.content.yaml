@@ -4,7 +4,13 @@ static:
   phone: 123
   email: max@mustermann.de
   birthdate: 01.01.1970
-
+  links:
+    - title: Linkedin
+      link: linkedin.com
+    - title: Github
+      link: github.com
+    - title: personal website
+      link: https://heeeeeeeey.com
 versions:
   english:
     - heading: Education
