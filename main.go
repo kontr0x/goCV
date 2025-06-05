@@ -7,8 +7,6 @@ import (
 	"github.com/coffeemakingtoaster/cv-gen/pkg/content"
 )
 
-var layoutTmpl = "layout.tex.tmpl"
-var stylingTmpl = "resume.cls.tmpl"
 var defaultContentYamlPath = "./content.yaml"
 
 func main() {
@@ -23,7 +21,8 @@ func main() {
 	}
 	for _, entry := range data {
 		dir := fmt.Sprintf("./%s-out", entry.Content.Version)
-		err := content.RenderTemplate(layoutTmpl, stylingTmpl, dir, entry)
+		// TODO: Add command line flag parsing to allow for custom passed paths
+		err := content.RenderTemplate("", "", dir, entry)
 		if err != nil {
 			panic(err)
 		}

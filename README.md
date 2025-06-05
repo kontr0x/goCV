@@ -1,5 +1,7 @@
 # goCV
-Blazingly fast minimalsitic resume generator with templating
+Blazingly fast minimalsitic resume generator with templating.
+
+Templates are packaged within the binary for now.
 
 ## Run
 

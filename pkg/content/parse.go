@@ -1,13 +1,21 @@
 package content
 
 import (
+	_ "embed"
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"text/template"
 
 	"gopkg.in/yaml.v3"
 )
+
+//go:embed layout.tex.tmpl
+var layoutTemplate string
+
+//go:embed resume.cls.tmpl
+var styleTemplate string
 
 func ParseContentFromYaml(path string) ([]TemplateData, error) {
 	data, err := os.ReadFile(path)
@@ -30,17 +38,21 @@ func ParseContentFromYaml(path string) ([]TemplateData, error) {
 	return result, nil
 }
 
-func renderTemplate(templatePath, targetpath string, data interface{}) error {
-	tmpl, err := template.New(templatePath).ParseFiles(templatePath)
-	if err != nil {
-		return err
+func loadTemplate(name, path, fallback string) (*template.Template, error) {
+	if len(path) == 0 {
+		return template.New(name).Parse(fallback)
 	}
+	return template.New(filepath.Base(path)).ParseFiles(path)
+}
+
+func renderTemplate(template *template.Template, targetpath string, data interface{}) error {
+	var err error
 	var f *os.File
 	f, err = os.Create(targetpath)
 	if err != nil {
 		return err
 	}
-	err = tmpl.Execute(f, data)
+	err = template.Execute(f, data)
 	if err != nil {
 		return err
 	}
@@ -65,11 +77,19 @@ func RenderTemplate(layoutPath, stylePath, targetDirPath string, data TemplateDa
 	if err != nil {
 		return err
 	}
-	err = renderTemplate(layoutPath, fmt.Sprintf("%s/layout.tex", targetDirPath), data.Content)
+	layoutTmpl, err := loadTemplate("layoutTemplate", layoutPath, layoutTemplate)
 	if err != nil {
 		return err
 	}
-	err = renderTemplate(stylePath, fmt.Sprintf("%s/resume.cls", targetDirPath), data.Content)
+	err = renderTemplate(layoutTmpl, fmt.Sprintf("%s/layout.tex", targetDirPath), data.Content)
+	if err != nil {
+		return err
+	}
+	styleTmpl, err := loadTemplate("styleTemplate", stylePath, styleTemplate)
+	if err != nil {
+		return err
+	}
+	err = renderTemplate(styleTmpl, fmt.Sprintf("%s/resume.cls", targetDirPath), data.Content)
 	if err != nil {
 		return err
 	}
