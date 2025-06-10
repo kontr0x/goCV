@@ -1,3 +1,9 @@
+# Ignore build binaries
+goCV
+
+# Ignore output files
+output/*
+
 # Created by https://www.toptal.com/developers/gitignore/api/go,macos,linux,vim,visualstudiocode,latex
 # Edit at https://www.toptal.com/developers/gitignore?templates=go,macos,linux,vim,visualstudiocode,latex
 

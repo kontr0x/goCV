@@ -2,12 +2,12 @@ services:
   goCV:
     image: kjarosh/latex:2025.1-small
     container_name: goCV
-    working_dir: /out
+    working_dir: /output
     volumes:
-      - ./out:/out
-      - ./cv-gen:/goCV
+      - ./output:/output
+      - ./goCV:/goCV
       - ./content.yaml:/content.yaml
     command: > 
       sh -c "tlmgr update --self --all &&
              tlmgr install latexmk &&
-             /goCV /content.yaml"
+             /goCV --output ./ /content.yaml"
